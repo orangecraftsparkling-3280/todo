@@ -1,0 +1,18 @@
+# --- Docker関係 ---
+docker/mysql/data/
+docker/mysql/logs/
+
+# --- OS・エディタ関係 ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- フロントエンド関係 ---
+node_modules/
+npm-debug.log
+
+# --- Laravel/PHP関係 (ルートに環境変数がある場合) ---
+.env
+.env.backup
+vendor/

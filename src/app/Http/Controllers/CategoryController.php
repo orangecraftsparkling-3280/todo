@@ -12,7 +12,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view( 'category', compact('categories'));
+        return view('category', compact('categories'));
     }
 
     public function store(CategoryRequest $request)
@@ -21,5 +21,20 @@ class CategoryController extends Controller
         Category::create($category);
 
         return redirect('/categories')->with('message', 'カテゴリを作成しました');
+    }
+
+    public function update(CategoryRequest $request)
+    {
+        $category = $request->only(['name']);
+        Category::find($request->id)->update($category);
+
+        return redirect('/categories')->with('message', 'カテゴリを更新しました');
+    }
+
+    public function destroy(Request $request)
+    {
+        Category::find($request->id)->delete();
+
+        return redirect('/categories')->with('message', 'カテゴリを削除しました');
     }
 }
